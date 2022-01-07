@@ -10,8 +10,20 @@ Tbilisi in Georgia, or Siauliai in Lithuania.
 At the risk of being a stereotypical American, I'll admit I don't know the
 names of many countries on that list.
 
-This is a script (well, two, really) that batch rename Windscribe OpenVPN
+Also, I came from Nord, which gave you a nice zip file with all of their
+servers' OpenVPN config files ready to go. They also used a filename format
+such that I could easily say something like "pick a random server that is in
+`$country`," which was quite handy. Having bought a year's subscription to
+Windscribe yesterday, I was disappointed to find that it is not the case here.
+
+Anyway, I'm glad I left Nord, because I needed port forwarding.
+
+This is a script (well, two, really) to batch rename Windscribe OpenVPN
 config files scraped via [this nifty web scraper](https://github.com/wilmardo/windscribe-ovpn-config-scraper.git).
+It also adds the path to an authentication file into the configs, so you don't
+have to keep looking up the randomly generated line noise username and
+password that Windscribe gives you. If you use this, *set up your
+permissions on the file and OpenVPN correctly,* please.
 
 Basically, it looks up some information from a JSON file on the Windscribe
 servers, to make the file names more descriptive.
