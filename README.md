@@ -8,7 +8,7 @@ server is in unless you happen to know that Adelaide is in Australia, or
 Tbilisi in Georgia, or Siauliai in Lithuania.
 
 At the risk of being a stereotypical American, I'll admit I don't know the
-names of a fair number of the countries on that list.
+names of a fair number of the cities on that list.
 
 Also, I came from Nord, which gave you a nice zip file with all of their
 servers' OpenVPN config files ready to go. They also used a filename format
