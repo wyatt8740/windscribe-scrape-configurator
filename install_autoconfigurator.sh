@@ -45,11 +45,11 @@ mkdir -p procd
 # make sure files exist before trying to move them.
 ls scraped | grep -q udp\\.ovpn
 if [ "$?" -eq 0 ]; then
-  mv scraped/*udp.ovpn udp/
+  cp scraped/*udp.ovpn udp/
 fi
 ls scraped | grep -q tcp\\.ovpn
 if [ "$?" -eq 0 ]; then
-  mv scraped/*tcp.ovpn tcp/
+  cp scraped/*tcp.ovpn tcp/
 fi
 
 JSON="$(get_list)"
