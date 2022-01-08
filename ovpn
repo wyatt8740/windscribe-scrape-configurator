@@ -1,0 +1,46 @@
+#! /usr/bin/env sh
+# Launch openvpn using specified server name (UDP)
+# parameters:
+# $1 - name of server, e.g. 'us1980' or 'uk774'
+
+unset FILENAME 2>/dev/null
+
+autotitle()
+{
+  # setting $TITLE_OVERRIDE to a non-empty value will allow overwriting the
+  # window title with a custom setting.
+  if [ -z "$TITLE_OVERRIDE" ]; then
+      case "$TERM" in
+        *xterm*)
+          echo -ne "\033]0;""$@""\007"
+          ;;
+        *)
+          # do nothing if not in an xterm-like terminal
+          ;;
+      esac
+  fi
+}
+
+title()
+{
+  export TITLE_OVERRIDE="1"
+  case "$TERM" in
+    *xterm*)
+    echo -ne "\033]0;""$@""\007"
+    ;;
+    *)
+      # do nothing if not in an xterm-like terminal
+    ;;
+  esac
+}
+
+untitle() # revert to automatic window titles
+{
+  export TITLE_OVERRIDE="" # null out in case unsetting doesn't export.
+  unset TITLE_OVERRIDE
+}
+
+# multiple results? truncate and pick first matching file name.
+FILENAME="$(find /etc/openvpn/wyatt/autoinst -maxdepth 1 -type f -name "$1"'*' | head -n 1)"
+title '# OpenVPN: '"$1"': '"$(basename "$FILENAME")"' #'
+sudo openvpn "$FILENAME"
